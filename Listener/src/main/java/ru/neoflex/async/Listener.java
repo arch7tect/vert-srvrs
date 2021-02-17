@@ -30,6 +30,7 @@ public class Listener extends AbstractVerticle {
 
     @Override
     public void stop() throws Exception {
+        httpServer.close();
         logger.info("Server stop");
     }
 
