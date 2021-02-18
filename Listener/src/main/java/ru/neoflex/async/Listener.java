@@ -24,14 +24,14 @@ public class Listener extends AbstractVerticle {
                     startPromise.complete();
                 })
                 .onFailure(event -> {
-                    logger.error("Failed to listen", event);
+                    logger.error("Failed to listen on " + port, event);
                 });
     }
 
     @Override
     public void stop() throws Exception {
-        httpServer.close();
         logger.info("Server stop");
+        httpServer.close();
     }
 
     private void handleRequest(HttpServerRequest request) {
